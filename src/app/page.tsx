@@ -1,51 +1,47 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function ComingSoon() {
 	return (
-		<div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-			<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-				<Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={180} height={38} priority />
-				<ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-					<li className="mb-2 tracking-[-.01em]">
-						Get started by editing{" "}
-						<code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-							src/app/page.tsx
-						</code>
-						.
-					</li>
-					<li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-				</ol>
+		<div className="relative isolate flex min-h-dvh flex-col overflow-hidden">
+			<div className="infusion -z-10" aria-hidden="true" />
 
-				<div className="flex gap-4 items-center flex-col sm:flex-row">
-					<a
-						className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-						href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Read our docs
-					</a>
-				</div>
+			<main className="flex flex-1 flex-col px-6 pt-[14vh] pb-10 sm:px-12 lg:px-20">
+				<h1 className="font-display text-[clamp(4.25rem,21vw,12.5rem)] leading-[0.86] font-medium tracking-[-0.02em]">
+					<span className="block">Literally</span>
+					<span className="block pl-[0.6em]">Fruit</span>
+				</h1>
+
+				<p className="mt-10 max-w-[34ch] text-[1.1875rem] leading-[1.55] text-leaf sm:mt-12 sm:text-xl">
+					Loose-leaf tea with real fruit, sweetened with stevia instead of
+					sugar. Blended by hand in small batches in Southwest Ohio.
+				</p>
+
+				<section
+					aria-label="Our two tea lines"
+					className="mt-14 grid max-w-3xl gap-8 border-t border-rule pt-8 sm:grid-cols-2 sm:gap-12"
+				>
+					<div>
+						<h2 className="font-display text-2xl font-medium">Fruit Teas</h2>
+						<p className="mt-2 max-w-[36ch] text-pretty leading-[1.6] text-dust">
+							Bright blends on black, green, and rooibos bases, made with
+							pieces of real fruit.
+						</p>
+					</div>
+					<div>
+						<h2 className="font-display text-2xl font-medium">
+							Artisan Infusions
+						</h2>
+						<p className="mt-2 max-w-[36ch] text-pretty leading-[1.6] text-dust">
+							Apothecary-style herbal blends, softened with fruit, for slow
+							evenings.
+						</p>
+					</div>
+				</section>
 			</main>
-			<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-					Learn
-				</a>
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-					Go to nextjs.org →
-				</a>
+
+			<footer className="flex flex-col gap-2 px-6 pb-8 text-sm text-dust sm:flex-row sm:items-end sm:justify-between sm:px-12 lg:px-20">
+				<p className="text-base text-pretty text-leaf">
+					Our first blends are steeping. The shop opens soon.
+				</p>
+				<p>© 2026 Literally Fruit</p>
 			</footer>
 		</div>
 	);

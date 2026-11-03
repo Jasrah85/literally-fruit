@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
+/*
+ * Literally Fruit — placeholder tokens.
+ * Steeped-tea dark, warm paper light, and two infusion accents
+ * (tea liquor amber, hibiscus red). These become the real token set in Stage B.
+ */
+@theme {
+	--color-steep: #1b1310;
+	--color-steep-raised: #241a16;
+	--color-rule: #3d2e27;
+	--color-leaf: #f2eadf;
+	--color-dust: #bcae9f;
+	--color-liquor: #d8892b;
+	--color-hibiscus: #a3243b;
 }
 
+/* Font families come from next/font/local variables set in layout.tsx. */
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+	--font-display: var(--font-bodoni), "Bodoni 72", "Didot", Georgia, serif;
+	--font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+html {
+	background-color: var(--color-steep);
+	color: var(--color-leaf);
+	color-scheme: dark;
 }
 
 body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: var(--font-sans);
+	font-optical-sizing: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+	background-color: var(--color-hibiscus);
+	color: var(--color-leaf);
+}
+
+/*
+ * The one moment of motion: color slowly diffusing up from the corner,
+ * like a tea bag steeping in a glass of hot water. Plays once on load.
+ */
+.infusion {
+	position: absolute;
+	right: -28vmax;
+	bottom: -34vmax;
+	width: 92vmax;
+	height: 92vmax;
+	border-radius: 9999px;
+	pointer-events: none;
+	background: radial-gradient(
+		circle at 50% 50%,
+		rgb(216 137 43 / 0.52) 0%,
+		rgb(216 137 43 / 0.36) 14%,
+		rgb(190 92 45 / 0.3) 26%,
+		rgb(163 36 59 / 0.3) 38%,
+		rgb(163 36 59 / 0.18) 50%,
+		rgb(120 28 40 / 0.08) 60%,
+		rgb(27 19 16 / 0) 71%
+	);
+	filter: blur(56px);
+	transform-origin: 70% 70%;
+	animation: steep 6.5s cubic-bezier(0.16, 0.7, 0.12, 1) 0.25s both;
+}
+
+@keyframes steep {
+	from {
+		opacity: 0;
+		transform: translate(6%, 10%) scale(0.45);
+	}
+	to {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.infusion {
+		animation: none;
+	}
 }
