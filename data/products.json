@@ -33,7 +33,7 @@
       "ritualMoment": "morning",
       "wineTwin": "Strawberry wine",
       "variants": [{ "id": "strawberry-matcha-pouch", "label": "Pouch · 20 lattes", "netWeightG": 100 }],
-      "cottageEligible": false
+      "cottageEligible": true
     },
     {
       "id": "lf-blackberry-oolong",
@@ -324,7 +324,7 @@
       "season": "winter",
       "ritualMoment": "morning",
       "variants": [{ "id": "gold-tin", "label": "Gift tin · 20 cups", "netWeightG": 50 }],
-      "cottageEligible": false
+      "cottageEligible": true
     },
     {
       "id": "ai-forest",
@@ -357,7 +357,7 @@
       "ritualMoment": "afternoon",
       "gallery": ["pouch", "leaf", "cup"],
       "variants": [{ "id": "forest-pouch", "label": "Pouch · 20 sachets", "netWeightG": 80 }],
-      "cottageEligible": false
+      "cottageEligible": true
     },
     {
       "id": "lf-blueberry-lemonade",

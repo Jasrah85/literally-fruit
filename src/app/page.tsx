@@ -1,48 +1,100 @@
-export default function ComingSoon() {
+import { getFeatured, getProducts } from "@/lib/catalog";
+import { CTA, SITE } from "@/lib/site";
+import { LinkButton } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { Hero } from "@/components/marketing/Hero";
+import { LineSplit } from "@/components/marketing/LineSplit";
+import { ProofPoints } from "@/components/marketing/ProofPoints";
+import { RitualSteps } from "@/components/marketing/RitualSteps";
+import { StoryBlock } from "@/components/marketing/StoryBlock";
+import { EmailSignup } from "@/components/marketing/EmailSignup";
+import { ProductGrid } from "@/components/catalog/ProductGrid";
+
+export default function HomePage() {
+	const featured = getFeatured().slice(0, 4);
+	const flavors = getProducts().map((p) => ({ slug: p.slug, name: p.number ? `Nº ${p.number} ${p.name}` : p.name }));
+
 	return (
-		<div className="relative isolate flex min-h-dvh flex-col overflow-hidden">
-			<div className="infusion -z-10" aria-hidden="true" />
+		<>
+			<JsonLd
+				data={{
+					"@context": "https://schema.org",
+					"@type": "Organization",
+					name: SITE.name,
+					url: SITE.url,
+					description: SITE.description,
+				}}
+			/>
+			<Hero
+				glow
+				eyebrow="Small-batch loose-leaf tea"
+				title={
+					<>
+						Real fruit.
+						<br />
+						No sugar.
+						<br />A slower cup.
+					</>
+				}
+				intro={<p>Fruit teas and apothecary-style herbal blends, sweetened with stevia leaf and blended by hand in Southwest Ohio.</p>}
+				actions={
+					<>
+						<LinkButton href={CTA.href} size="lg">
+							{CTA.label}
+						</LinkButton>
+						<LinkButton href="/shop" variant="ghost">
+							See the blends
+						</LinkButton>
+					</>
+				}
+				image={{ src: "site/home-hero", alt: "A cup of fruit tea being poured on a dark table", label: "A slow pour", tint: "#b5622a" }}
+			/>
 
-			<main className="flex flex-1 flex-col px-6 pt-[14vh] pb-10 sm:px-12 lg:px-20">
-				<h1 className="font-display text-[clamp(4.25rem,21vw,12.5rem)] leading-[0.86] font-medium tracking-[-0.02em]">
-					<span className="block">Literally</span>
-					<span className="block pl-[0.6em]">Fruit</span>
-				</h1>
+			<Section id="lines" eyebrow="Two lines, one kettle" title="Bright fruit, or slow botanicals" ruled>
+				<LineSplit />
+			</Section>
 
-				<p className="mt-10 max-w-[34ch] text-[1.1875rem] leading-[1.55] text-leaf sm:mt-12 sm:text-xl">
-					Loose-leaf tea with real fruit, sweetened with stevia instead of
-					sugar. Blended by hand in small batches in Southwest Ohio.
-				</p>
+			<Section id="featured" title="From the first batch" intro={<p>Our year-round blends. Everything is coming soon, so join the list to get the first pouches.</p>} width="wide">
+				<ProductGrid products={featured} />
+				<div className="mt-10">
+					<LinkButton href="/shop" variant="secondary">
+						All {getProducts().length} blends
+					</LinkButton>
+				</div>
+			</Section>
 
-				<section
-					aria-label="Our two tea lines"
-					className="mt-14 grid max-w-3xl gap-8 border-t border-rule pt-8 sm:grid-cols-2 sm:gap-12"
+			<Section id="whats-in-it" eyebrow="What's in the pouch" title="Plain ingredients, said plainly" ruled>
+				<ProofPoints />
+			</Section>
+
+			<Section id="ritual" eyebrow="The ritual" title="Three steps to a good cup" ruled>
+				<RitualSteps />
+				<div className="mt-10">
+					<LinkButton href="/brew" variant="ghost">
+						The full brew guide
+					</LinkButton>
+				</div>
+			</Section>
+
+			<Section space="md">
+				<StoryBlock
+					title="From a small farm in Southwest Ohio"
+					image={{ src: "site/farm", alt: "The farm in Southwest Ohio at golden hour", label: "The farm", tint: "#8a6a35" }}
+					action={
+						<LinkButton href="/about" variant="secondary">
+							Our story
+						</LinkButton>
+					}
 				>
-					<div>
-						<h2 className="font-display text-2xl font-medium">Fruit Teas</h2>
-						<p className="mt-2 max-w-[36ch] text-pretty leading-[1.6] text-dust">
-							Bright blends on black, green, and rooibos bases, made with
-							pieces of real fruit.
-						</p>
-					</div>
-					<div>
-						<h2 className="font-display text-2xl font-medium">
-							Artisan Infusions
-						</h2>
-						<p className="mt-2 max-w-[36ch] text-pretty leading-[1.6] text-dust">
-							Apothecary-style herbal blends, softened with fruit, for slow
-							evenings.
-						</p>
-					</div>
-				</section>
-			</main>
+					<p>Literally Fruit started as a fruit wine label for the farm where we&rsquo;re planting our first vineyard.</p>
+					<p>The teas came first. They use the same fruit, the same flavors, and hand-drawn labels.</p>
+				</StoryBlock>
+			</Section>
 
-			<footer className="flex flex-col gap-2 px-6 pb-8 text-sm text-dust sm:flex-row sm:items-end sm:justify-between sm:px-12 lg:px-20">
-				<p className="text-base text-pretty text-leaf">
-					Our first blends are steeping. The shop opens soon.
-				</p>
-				<p>© 2026 Literally Fruit</p>
-			</footer>
-		</div>
+			<Section id="signup" eyebrow="First batch" title="Get the first pouches" intro={<p>Join the list for launch news and first-batch access. Tell us your state so we know where to ship next.</p>} ruled>
+				<EmailSignup source="home" flavors={flavors} />
+			</Section>
+		</>
 	);
 }

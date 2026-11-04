@@ -108,8 +108,7 @@ function Placeholder({ tint, title, caption, alt, className }: { tint?: string; 
 	const color = `color-mix(in oklab, ${tint ?? "var(--lf-blend)"} 82%, var(--lf-ink) 18%)`;
 	return (
 		<div
-			role="img"
-			aria-label={alt}
+			{...(alt ? { role: "img", "aria-label": alt } : { "aria-hidden": true })}
 			className={cn(className, "flex flex-col items-center justify-end bg-surface-raised p-5 text-center")}
 			style={{
 				backgroundImage: [

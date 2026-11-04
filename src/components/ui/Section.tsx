@@ -19,7 +19,7 @@ type Props = {
 	ruled?: boolean;
 	id?: string;
 	className?: string;
-	children: ReactNode;
+	children?: ReactNode;
 };
 
 export function Section({ title, eyebrow, intro, space = "md", width = "content", ruled, id, className, children }: Props) {

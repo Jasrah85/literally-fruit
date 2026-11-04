@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 import { getRedirects } from "./src/lib/catalog";
 
 const nextConfig: NextConfig = {
@@ -13,7 +14,10 @@ const nextConfig: NextConfig = {
 	},
 };
 
-export default nextConfig;
+// MDX for journal posts in src/content/journal.
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);
 
 // Enable calling `getCloudflareContext()` in `next dev`.
 // See https://opennext.js.org/cloudflare/bindings#local-access-to-bindings.

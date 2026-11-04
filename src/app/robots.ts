@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
+import { LAUNCHED, SITE } from "@/lib/site";
 
-// Placeholder period: block all crawlers. Replace with real rules at launch.
 export default function robots(): MetadataRoute.Robots {
+	if (!LAUNCHED) return { rules: { userAgent: "*", disallow: "/" } };
 	return {
-		rules: { userAgent: "*", disallow: "/" },
+		rules: { userAgent: "*", allow: "/", disallow: ["/api/", "/dev/"] },
+		sitemap: `${SITE.url}/sitemap.xml`,
 	};
 }
