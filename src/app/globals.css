@@ -1,11 +1,21 @@
 @import "tailwindcss";
 
 /*
- * Literally Fruit — placeholder tokens.
- * Steeped-tea dark, warm paper light, and two infusion accents
- * (tea liquor amber, hibiscus red). These become the real token set in Stage B.
+ * Literally Fruit design tokens.
+ *
+ * Two layers:
+ * 1. Raw palette (@theme): named colors you can also use directly, e.g. bg-steep.
+ * 2. Semantic roles (--lf-*): surface, ink, accent, label… Each line sets its own
+ *    values under [data-line], and the Tailwind utilities below (bg-surface,
+ *    text-ink, border-rule, bg-accent…) follow whichever line wraps them.
+ *
+ * Fruit Teas: the winery tasting room. Matte black, cream labels, vivid fruit.
+ * Artisan Infusions: the apothecary. Dark umber, parchment labels, brass and sage.
+ *
+ * These are first-draft brand values. Change them here and the whole site follows.
  */
 @theme {
+	/* Shared and placeholder-page palette */
 	--color-steep: #1b1310;
 	--color-steep-raised: #241a16;
 	--color-rule: #3d2e27;
@@ -13,12 +23,81 @@
 	--color-dust: #bcae9f;
 	--color-liquor: #d8892b;
 	--color-hibiscus: #a3243b;
+
+	/* Fruit Teas */
+	--color-cellar: #131110;
+	--color-cellar-raised: #1d1a18;
+	--color-cellar-rule: #342e2a;
+	--color-cream: #f1e9dc;
+	--color-cream-muted: #b5aa9d;
+
+	/* Artisan Infusions */
+	--color-umber: #17130e;
+	--color-umber-raised: #221c15;
+	--color-umber-rule: #3b3226;
+	--color-parchment: #ebdfc6;
+	--color-parchment-muted: #a89a7f;
+	--color-brass: #c4a062;
+	--color-sage: #8fa283;
+
+	--radius-label: 0.375rem;
 }
 
 /* Font families come from next/font/local variables set in layout.tsx. */
 @theme inline {
 	--font-display: var(--font-bodoni), "Bodoni 72", "Didot", Georgia, serif;
 	--font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+
+	/* Semantic roles. Use these in components so they theme per line. */
+	--color-surface: var(--lf-surface);
+	--color-surface-raised: var(--lf-surface-raised);
+	--color-ink: var(--lf-ink);
+	--color-ink-muted: var(--lf-ink-muted);
+	--color-line-rule: var(--lf-rule);
+	--color-accent: var(--lf-accent);
+	--color-accent-ink: var(--lf-accent-ink);
+	--color-label: var(--lf-label);
+	--color-label-ink: var(--lf-label-ink);
+	--color-blend: var(--lf-blend);
+}
+
+/*
+ * Line themes. :root is the house brand (Fruit Teas). Wrap any subtree in
+ * <LineTheme line="artisan"> (which sets data-line) to switch it.
+ * --lf-blend is set per product from its cupColor; it falls back to the accent.
+ */
+:root,
+[data-line="fruit"] {
+	--lf-surface: var(--color-cellar);
+	--lf-surface-raised: var(--color-cellar-raised);
+	--lf-ink: var(--color-cream);
+	--lf-ink-muted: var(--color-cream-muted);
+	--lf-rule: var(--color-cellar-rule);
+	--lf-accent: var(--color-hibiscus);
+	--lf-accent-ink: var(--color-cream);
+	--lf-label: var(--color-cream);
+	--lf-label-ink: var(--color-cellar);
+	--lf-blend: var(--lf-accent);
+	--lf-display-tracking: -0.015em;
+}
+
+[data-line="artisan"] {
+	--lf-surface: var(--color-umber);
+	--lf-surface-raised: var(--color-umber-raised);
+	--lf-ink: var(--color-parchment);
+	--lf-ink-muted: var(--color-parchment-muted);
+	--lf-rule: var(--color-umber-rule);
+	--lf-accent: var(--color-brass);
+	--lf-accent-ink: var(--color-umber);
+	--lf-label: var(--color-parchment);
+	--lf-label-ink: var(--color-umber);
+	--lf-blend: var(--lf-accent);
+	--lf-display-tracking: 0;
+}
+
+[data-line] {
+	background-color: var(--lf-surface);
+	color: var(--lf-ink);
 }
 
 html {
@@ -32,6 +111,12 @@ body {
 	font-optical-sizing: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Visible keyboard focus everywhere, in the line's accent. */
+:focus-visible {
+	outline: 2px solid var(--lf-accent);
+	outline-offset: 3px;
 }
 
 ::selection {

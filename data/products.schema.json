@@ -1,0 +1,449 @@
+{
+	"title": "Literally Fruit product catalog",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string"
+		},
+		"products": {
+			"minItems": 1,
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+					},
+					"slug": {
+						"type": "string",
+						"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+					},
+					"previousSlugs": {
+						"default": [],
+						"type": "array",
+						"items": {
+							"type": "string",
+							"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+						}
+					},
+					"name": {
+						"type": "string",
+						"minLength": 1
+					},
+					"number": {
+						"type": "integer",
+						"exclusiveMinimum": 0,
+						"maximum": 9007199254740991
+					},
+					"category": {
+						"type": "string",
+						"const": "tea"
+					},
+					"line": {
+						"type": "string",
+						"enum": [
+							"fruit",
+							"artisan"
+						]
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"coming-soon",
+							"available",
+							"seasonal-off",
+							"hidden"
+						]
+					},
+					"featured": {
+						"default": false,
+						"type": "boolean"
+					},
+					"copyStatus": {
+						"default": "draft",
+						"type": "string",
+						"enum": [
+							"draft",
+							"final"
+						]
+					},
+					"tagline": {
+						"type": "string",
+						"minLength": 1,
+						"maxLength": 60
+					},
+					"description": {
+						"type": "string",
+						"minLength": 1
+					},
+					"inTheCup": {
+						"type": "string",
+						"minLength": 1
+					},
+					"cupColor": {
+						"type": "string",
+						"pattern": "^#[0-9a-fA-F]{6}$"
+					},
+					"base": {
+						"type": "string",
+						"enum": [
+							"black",
+							"green",
+							"white",
+							"oolong",
+							"matcha",
+							"herbal",
+							"rooibos",
+							"honeybush",
+							"chicory",
+							"mushroom"
+						]
+					},
+					"caffeine": {
+						"type": "string",
+						"enum": [
+							"none",
+							"low",
+							"medium",
+							"high"
+						]
+					},
+					"sweeteners": {
+						"default": [],
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [
+								"stevia-leaf",
+								"stevia-extract",
+								"monk-fruit"
+							]
+						}
+					},
+					"sweetness": {
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 3
+					},
+					"format": {
+						"type": "string",
+						"enum": [
+							"loose",
+							"sachet",
+							"powder"
+						]
+					},
+					"flavorNotes": {
+						"minItems": 3,
+						"maxItems": 5,
+						"type": "array",
+						"items": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					"ingredients": {
+						"minItems": 1,
+						"type": "array",
+						"items": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					"allergens": {
+						"default": [],
+						"type": "array",
+						"items": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					"cautions": {
+						"default": [],
+						"type": "array",
+						"items": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					"brew": {
+						"type": "object",
+						"properties": {
+							"hot": {
+								"type": "object",
+								"properties": {
+									"grams": {
+										"type": "number",
+										"exclusiveMinimum": 0
+									},
+									"measure": {
+										"type": "string",
+										"minLength": 1
+									},
+									"waterOz": {
+										"type": "number",
+										"exclusiveMinimum": 0
+									},
+									"tempF": {
+										"anyOf": [
+											{
+												"type": "number",
+												"exclusiveMinimum": 0
+											},
+											{
+												"type": "array",
+												"prefixItems": [
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													},
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													}
+												],
+												"items": false,
+												"minItems": 2,
+												"maxItems": 2
+											}
+										]
+									},
+									"minutes": {
+										"anyOf": [
+											{
+												"type": "number",
+												"exclusiveMinimum": 0
+											},
+											{
+												"type": "array",
+												"prefixItems": [
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													},
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													}
+												],
+												"items": false,
+												"minItems": 2,
+												"maxItems": 2
+											}
+										]
+									},
+									"note": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"grams",
+									"measure",
+									"waterOz",
+									"tempF"
+								]
+							},
+							"iced": {
+								"type": "object",
+								"properties": {
+									"grams": {
+										"type": "number",
+										"exclusiveMinimum": 0
+									},
+									"measure": {
+										"type": "string",
+										"minLength": 1
+									},
+									"waterOz": {
+										"type": "number",
+										"exclusiveMinimum": 0
+									},
+									"tempF": {
+										"anyOf": [
+											{
+												"type": "number",
+												"exclusiveMinimum": 0
+											},
+											{
+												"type": "array",
+												"prefixItems": [
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													},
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													}
+												],
+												"items": false,
+												"minItems": 2,
+												"maxItems": 2
+											}
+										]
+									},
+									"minutes": {
+										"anyOf": [
+											{
+												"type": "number",
+												"exclusiveMinimum": 0
+											},
+											{
+												"type": "array",
+												"prefixItems": [
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													},
+													{
+														"type": "number",
+														"exclusiveMinimum": 0
+													}
+												],
+												"items": false,
+												"minItems": 2,
+												"maxItems": 2
+											}
+										]
+									},
+									"note": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"grams",
+									"measure",
+									"waterOz",
+									"tempF"
+								]
+							}
+						},
+						"required": [
+							"hot"
+						]
+					},
+					"serveWith": {
+						"type": "string"
+					},
+					"pairsWith": {
+						"default": [],
+						"type": "array",
+						"items": {
+							"type": "string",
+							"minLength": 1
+						}
+					},
+					"cupsPerPackage": {
+						"type": "integer",
+						"exclusiveMinimum": 0,
+						"maximum": 9007199254740991
+					},
+					"season": {
+						"type": "string",
+						"enum": [
+							"core",
+							"fall",
+							"winter",
+							"spring-summer"
+						]
+					},
+					"ritualMoment": {
+						"type": "string",
+						"enum": [
+							"morning",
+							"afternoon",
+							"evening",
+							"anytime"
+						]
+					},
+					"wineTwin": {
+						"type": "string"
+					},
+					"gallery": {
+						"default": [
+							"pouch",
+							"leaf",
+							"cup"
+						],
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [
+								"pouch",
+								"leaf",
+								"cup",
+								"lifestyle"
+							]
+						}
+					},
+					"variants": {
+						"default": [],
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string",
+									"pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+								},
+								"label": {
+									"type": "string",
+									"minLength": 1
+								},
+								"netWeightG": {
+									"type": "number",
+									"exclusiveMinimum": 0
+								},
+								"priceCents": {
+									"type": "integer",
+									"exclusiveMinimum": 0,
+									"maximum": 9007199254740991
+								},
+								"squareVariationId": {
+									"type": "string",
+									"minLength": 1
+								}
+							},
+							"required": [
+								"id",
+								"label",
+								"netWeightG"
+							]
+						}
+					},
+					"cottageEligible": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"id",
+					"slug",
+					"name",
+					"category",
+					"line",
+					"status",
+					"tagline",
+					"description",
+					"inTheCup",
+					"cupColor",
+					"base",
+					"caffeine",
+					"sweetness",
+					"format",
+					"flavorNotes",
+					"ingredients",
+					"brew",
+					"cupsPerPackage",
+					"season",
+					"ritualMoment",
+					"cottageEligible"
+				]
+			}
+		}
+	},
+	"required": [
+		"products"
+	]
+}
