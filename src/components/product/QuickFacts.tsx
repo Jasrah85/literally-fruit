@@ -18,11 +18,13 @@ const BASE_LABEL: Record<Product["base"], string> = {
 const FORMAT_LABEL: Record<Product["format"], string> = { loose: "Loose leaf", sachet: "Sachets", powder: "Powder" };
 
 export function QuickFacts({ product: p }: { product: Product }) {
+	const cups = [...new Set(p.variants.map((v) => v.cups ?? p.cupsPerPackage))].sort((a, b) => a - b);
+	const cupText = (cups.length ? cups : [p.cupsPerPackage]).join(" or ");
 	const facts: [string, React.ReactNode][] = [
 		["Base", BASE_LABEL[p.base]],
 		["Caffeine", <CaffeineMeter key="c" level={p.caffeine} />],
 		["Sweetness", <SweetnessIndicator key="s" sweetness={p.sweetness} sweeteners={p.sweeteners} />],
-		["Makes", `${p.cupsPerPackage} ${p.format === "powder" ? "lattes" : "cups"} · ${FORMAT_LABEL[p.format].toLowerCase()}`],
+		["Makes", `${cupText} ${p.format === "powder" ? "lattes" : "cups"} · ${FORMAT_LABEL[p.format].toLowerCase()}`],
 	];
 	return (
 		<dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line-rule py-6">

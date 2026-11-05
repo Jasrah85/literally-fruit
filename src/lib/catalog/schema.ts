@@ -62,6 +62,8 @@ export const Variant = z.object({
 	/** Shown on the selector, e.g. "Pouch · 20 cups". */
 	label: z.string().min(1),
 	netWeightG: z.number().positive(),
+	/** Cups (or lattes) this size makes. Defaults to the product's cupsPerPackage. */
+	cups: z.number().int().positive().optional(),
 	/** Display price in cents. Square's catalog price is what's charged. */
 	priceCents: z.number().int().positive().optional(),
 	/** Square catalog variation id. Required once the product is available. */

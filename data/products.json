@@ -32,7 +32,10 @@
       "season": "core",
       "ritualMoment": "morning",
       "wineTwin": "Strawberry wine",
-      "variants": [{ "id": "strawberry-matcha-pouch", "label": "Pouch · 20 lattes", "netWeightG": 100 }],
+      "variants": [
+        { "id": "strawberry-matcha-10", "label": "Pouch · 10 lattes", "netWeightG": 50, "cups": 10, "priceCents": 1500 },
+        { "id": "strawberry-matcha-pouch", "label": "Pouch · 20 lattes", "netWeightG": 100, "cups": 20, "priceCents": 2600 }
+      ],
       "cottageEligible": true
     },
     {
@@ -64,7 +67,7 @@
       "cupsPerPackage": 20,
       "season": "core",
       "ritualMoment": "afternoon",
-      "variants": [{ "id": "blackberry-oolong-pouch", "label": "Pouch · 20 cups", "netWeightG": 60 }],
+      "variants": [{ "id": "blackberry-oolong-pouch", "label": "Pouch · 20 cups", "netWeightG": 60, "cups": 20, "priceCents": 1400 }],
       "cottageEligible": true
     },
     {
@@ -98,7 +101,7 @@
       "season": "core",
       "ritualMoment": "anytime",
       "wineTwin": "Cranberry-pomegranate wine",
-      "variants": [{ "id": "cran-pom-pouch", "label": "Pouch · 20 cups", "netWeightG": 75 }],
+      "variants": [{ "id": "cran-pom-pouch", "label": "Pouch · 20 cups", "netWeightG": 75, "cups": 20, "priceCents": 1600 }],
       "cottageEligible": true
     },
     {
@@ -131,7 +134,7 @@
       "cupsPerPackage": 20,
       "season": "core",
       "ritualMoment": "evening",
-      "variants": [{ "id": "unwind-pouch", "label": "Pouch · 20 cups", "netWeightG": 45 }],
+      "variants": [{ "id": "unwind-pouch", "label": "Pouch · 20 cups", "netWeightG": 45, "cups": 20, "priceCents": 1400 }],
       "cottageEligible": true
     },
     {
@@ -164,7 +167,7 @@
       "cupsPerPackage": 20,
       "season": "core",
       "ritualMoment": "evening",
-      "variants": [{ "id": "lights-out-pouch", "label": "Pouch · 20 cups", "netWeightG": 45 }],
+      "variants": [{ "id": "lights-out-pouch", "label": "Pouch · 20 cups", "netWeightG": 45, "cups": 20, "priceCents": 1400 }],
       "cottageEligible": true
     },
     {
@@ -196,7 +199,7 @@
       "season": "fall",
       "ritualMoment": "morning",
       "wineTwin": "Cinnamon apple wine",
-      "variants": [{ "id": "cinnamon-apple-pouch", "label": "Pouch · 20 cups", "netWeightG": 60 }],
+      "variants": [{ "id": "cinnamon-apple-pouch", "label": "Pouch · 20 cups", "netWeightG": 60, "cups": 20, "priceCents": 1400 }],
       "cottageEligible": true
     },
     {
@@ -227,7 +230,7 @@
       "cupsPerPackage": 20,
       "season": "fall",
       "ritualMoment": "morning",
-      "variants": [{ "id": "chicory-chai-pouch", "label": "Pouch · 20 cups", "netWeightG": 80 }],
+      "variants": [{ "id": "chicory-chai-pouch", "label": "Pouch · 20 cups", "netWeightG": 80, "cups": 20, "priceCents": 1400 }],
       "cottageEligible": true
     },
     {
@@ -260,7 +263,7 @@
       "season": "fall",
       "ritualMoment": "evening",
       "wineTwin": "Pear wine",
-      "variants": [{ "id": "hearth-pouch", "label": "Pouch · 20 cups", "netWeightG": 60 }],
+      "variants": [{ "id": "hearth-pouch", "label": "Pouch · 20 cups", "netWeightG": 60, "cups": 20, "priceCents": 1600 }],
       "cottageEligible": true
     },
     {
@@ -291,7 +294,7 @@
       "cupsPerPackage": 20,
       "season": "winter",
       "ritualMoment": "afternoon",
-      "variants": [{ "id": "amaretto-pouch", "label": "Pouch · 20 cups", "netWeightG": 60 }],
+      "variants": [{ "id": "amaretto-pouch", "label": "Pouch · 20 cups", "netWeightG": 60, "cups": 20, "priceCents": 1400 }],
       "cottageEligible": true
     },
     {
@@ -323,7 +326,7 @@
       "cupsPerPackage": 20,
       "season": "winter",
       "ritualMoment": "morning",
-      "variants": [{ "id": "gold-tin", "label": "Gift tin · 20 cups", "netWeightG": 50 }],
+      "variants": [{ "id": "gold-tin", "label": "Gift tin · 20 cups", "netWeightG": 50, "cups": 20, "priceCents": 2400 }],
       "cottageEligible": true
     },
     {
@@ -356,7 +359,7 @@
       "season": "winter",
       "ritualMoment": "afternoon",
       "gallery": ["pouch", "leaf", "cup"],
-      "variants": [{ "id": "forest-pouch", "label": "Pouch · 20 sachets", "netWeightG": 80 }],
+      "variants": [{ "id": "forest-pouch", "label": "Pouch · 20 sachets", "netWeightG": 80, "cups": 20, "priceCents": 2400 }],
       "cottageEligible": true
     },
     {
@@ -388,7 +391,7 @@
       "cupsPerPackage": 20,
       "season": "spring-summer",
       "ritualMoment": "afternoon",
-      "variants": [{ "id": "blueberry-lemonade-pouch", "label": "Pouch · 20 cups", "netWeightG": 55 }],
+      "variants": [{ "id": "blueberry-lemonade-pouch", "label": "Pouch · 20 cups", "netWeightG": 55, "cups": 20, "priceCents": 1600 }],
       "cottageEligible": true
     },
     {
@@ -421,7 +424,7 @@
       "cupsPerPackage": 20,
       "season": "spring-summer",
       "ritualMoment": "afternoon",
-      "variants": [{ "id": "shade-pouch", "label": "Pouch · 20 cups", "netWeightG": 45 }],
+      "variants": [{ "id": "shade-pouch", "label": "Pouch · 20 cups", "netWeightG": 45, "cups": 20, "priceCents": 1400 }],
       "cottageEligible": true
     }
   ]
