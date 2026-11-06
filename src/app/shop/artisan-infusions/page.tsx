@@ -20,7 +20,7 @@ export default function ArtisanInfusionsPage() {
 			}
 			intro={
 				<p>
-					An apothecary line from Literally Fruit. Numbered herbal blends, softened with fruit and made for the slow parts of the day: the end of
+					An apothecary line from Literally Fruit. Numbered herbal blends built on botanicals instead of fruit, made for the slow parts of the day: the end of
 					work, a long evening, the last cup before the house goes quiet.
 				</p>
 			}
@@ -30,7 +30,7 @@ export default function ArtisanInfusionsPage() {
 				<>
 					<p>
 						Each Artisan Infusion is built around one or two herbs with real character, like Kapoor tulsi, linden flower, honeybush, or wild
-						chaga. Softer botanicals and a little fruit round them out.
+						chaga, with softer botanicals and spices to round them out. Where fruit appears, it&rsquo;s a supporting note, never the point.
 					</p>
 					<p>
 						They&rsquo;re numbered the way an apothecary numbers its jars, and each has its own hand-drawn label. Most are caffeine-free and

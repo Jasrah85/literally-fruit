@@ -12,7 +12,7 @@ export const SITE = {
 		"Small-batch loose-leaf tea with real fruit, sweetened with stevia leaf instead of sugar. Fruit Teas and Artisan Infusions, blended by hand in Southwest Ohio.",
 	announcement: "Small-batch tea, blended by hand in Southwest Ohio. First batch coming soon.",
 	/** Shown in the footer once you decide which LLC operates the tea business. */
-	legalName: undefined as string | undefined,
+	legalName: "Literally Fruit, LLC" as string | undefined,
 	social: [] as { label: string; href: string }[],
 } as const;
 

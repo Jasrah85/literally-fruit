@@ -21,7 +21,7 @@ export const LINES: Record<Line, LineInfo> = {
 		id: "artisan",
 		name: "Artisan Infusions",
 		kicker: "An apothecary line from Literally Fruit",
-		blurb: "Numbered herbal blends, softened with fruit and made for the slow parts of the day.",
+		blurb: "Numbered herbal blends built on botanicals, not fruit, and made for the slow parts of the day.",
 		path: "/shop/artisan-infusions",
 	},
 };

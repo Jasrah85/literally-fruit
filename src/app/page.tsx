@@ -37,7 +37,7 @@ export default function HomePage() {
 						<br />A slower cup.
 					</>
 				}
-				intro={<p>Fruit teas and apothecary-style herbal blends, sweetened with stevia leaf and blended by hand in Southwest Ohio.</p>}
+				intro={<p>Fruit teas sweetened with stevia leaf, and apothecary-style herbal blends without the fruit. All blended by hand in Southwest Ohio.</p>}
 				actions={
 					<>
 						<LinkButton href={CTA.href} size="lg">

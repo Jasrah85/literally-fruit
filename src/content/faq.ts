@@ -44,6 +44,6 @@ export const FAQ: QA[] = [
 	},
 	{
 		q: "What's the difference between the two lines?",
-		a: "Fruit Teas are bright and fruit-forward, on tea and herbal bases. Artisan Infusions are numbered herbal blends with an apothecary feel, softened with fruit and made for slower moments.",
+		a: "Fruit Teas are bright and fruit-forward, on tea and herbal bases. Artisan Infusions are numbered herbal blends with an apothecary feel, built on botanicals rather than fruit and made for slower moments. That\u2019s why they carry their own name.",
 	},
 ];
